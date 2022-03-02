@@ -1,7 +1,7 @@
 # Easy_Stretcher
 dev III project
 
-DIEU David
-GODEFROID Mehdi
+DIEU David \n
+GODEFROID Mehdi \n
 LACROIX Harold
 MOYEN Firmin
