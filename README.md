@@ -1,7 +1,7 @@
 # Easy_Stretcher
-dev III project
+Projet pour le cours de développement informatique III
 
-DIEU David \n
-GODEFROID Mehdi \n
-LACROIX Harold
-MOYEN Firmin
+DIEU David; 
+GODEFROID Mehdi; 
+LACROIX Harold; 
+MOYEN Firmin; 
