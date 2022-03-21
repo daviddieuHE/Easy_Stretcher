@@ -1,3 +1,0 @@
-C:\Users\Arsium\source\repos\Easy_Stretcher\Easy_Stretcher\obj\Debug\Easy_Stretcher.njsproj.AssemblyReference.cache
-C:\Users\Arsium\source\repos\Easy_Stretcher\Easy_Stretcher\obj\Debug\Easy_Stretcher.njsproj.CoreCompileInputs.cache
-C:\Users\Arsium\source\repos\Easy_Stretcher\Easy_Stretcher\bin\Microsoft.NodejsTools.WebRole.dll
