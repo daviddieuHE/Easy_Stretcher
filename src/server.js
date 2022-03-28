@@ -63,4 +63,9 @@ app.get('/changementStatus/:id_patient', (req, res) => {
   });
 });
 
+/*
+Commandes: npm start
+           node src/server.js
+*/
+
 module.exports = db;
