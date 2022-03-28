@@ -40,12 +40,27 @@ app.use((req, res, next) => {
   next();
 });
 
+/*app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  next();
+});*/
+
 app.get('/posts', (req, res) => {
-  db.query("SELECT id_patient, nom, prenom, date_naiss FROM tb_patients WHERE jour ='Lundi';", (err, results, fields) => {
+  db.query("CALL patientsJours;", (err, results, fields) => {
     if (err) throw err;
     res.send(results);
   });
 });
 
+//http://localhost:3000/changementStatus/20220001
+app.get('/changementStatus/:id_patient', (req, res) => {
+  console.log(req.params.id_patient);
+  db.query(`CALL changementStatus(${req.params["id_patient"]}, ${2});`, (err, results, fields) => {
+    if (err) throw err;
+    res.send(results);
+  });
+});
 
 module.exports = db;
