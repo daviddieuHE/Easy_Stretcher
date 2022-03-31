@@ -1,6 +1,8 @@
 'use strict';
+const apiHopital = require('./APIHopital.js');
 var path = require('path');
 var express = require('express');
+
 
 var app = express();
 
@@ -47,25 +49,43 @@ app.use((req, res, next) => {
   next();
 });*/
 
-app.get('/posts', (req, res) => {
+app.get('/demande', (req, res) => 
+{
   db.query("CALL patientsJours;", (err, results, fields) => {
     if (err) throw err;
+    results[0].forEach(element => 
+    {
+      let newPatient = new apiHopital.Patient(null, null, null, null, null, null, null);
+      newPatient.idPatient = element['id_patient'];
+      //apiHopital.Patient.addPatientToList(newPatient);
+
+      //let nouveauPatient = new newModuleAPI.Patient(null, null, null, null, null, null, null);
+      //patient.idPatient.idPatient = element['id_patient'];
+      //console.log(patient.idPatient);
+      //console.log(element['id_patient']);
+    });
+
+    //console.log(apiHopital.Patient.totalPatients());
     res.send(results);
   });
+  /*db.query("SELECT tb_patients.id_patient, nom, prenom, tb_destination.id_status FROM tb_destination JOIN tb_patients ON tb_patients.id_patient = tb_destination.id_patient WHERE id_status = 2;",
+   (err, results, fields) => {
+    if (err) throw err;
+    console.log(results);*/
+    /*results.forEach(element => {
+      let nouveauPatient = new Patient(null, null, null, null , null, null ,null);
+      nouveauPatient.idPatient = element['id_patient'];
+      console.log( nouveauPatient.idPatient);
+    }); */
+    //res.send(results);
 });
 
 //http://localhost:3000/changementStatus/20220001
 app.get('/changementStatus/:id_patient', (req, res) => {
-  console.log(req.params.id_patient);
   db.query(`CALL changementStatus(${req.params["id_patient"]}, ${2});`, (err, results, fields) => {
     if (err) throw err;
     res.send(results);
   });
 });
 
-/*
-Commandes: npm start
-           node src/server.js
-*/
-
-module.exports = db;
+//module.exports = db;
