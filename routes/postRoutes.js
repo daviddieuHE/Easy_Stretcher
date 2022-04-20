@@ -5,4 +5,5 @@ const router = express.Router();
 // @route GET && POST - /posts/
 router.get();
 
+
 module.exports = router;

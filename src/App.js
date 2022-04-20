@@ -1,151 +1,52 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from './components/home';
+import Log from './components/login';
+import Brancardier from './components/brancardier';
+import useToken from './useToken';
 
 
-
-/* 
-Fonction du bouton 'Retourner' 
-Supprime le patient de la section 
-*/
-function handleOnClickRetour() {
-  let patient = document.getElementById('Retour--patient');
-  let worklist = document.getElementById('Retour--box');
-
-  worklist.removeChild(patient);
-  return true;
-}
-
-
-/*
-Composant Worklist, affiche les patients dans la worklist
-*/
-class Worklist extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { posts: [[]] };
-
-    this.handleOnClickDemander = this.handleOnClickDemander.bind(this);
-  };
-
-
-  /*
-  Récupération des dta de la DB
-  */
-  async componentDidMount() {
-    let res = await axios.get("http://localhost:3000/posts");
-    let data = res.data;
-    this.setState({posts: data});
-  };
-
-
-
-  /* 
-  Changement du statut du patient dans la DB
-  */
-  async changePatientStatus(id_patient) {
-    
-
-    
-  };
+function App() {
   
-  /*
-  Fonction du bouton 'Demander'
-  Déplace le patient de section
-  */
-  handleOnClickDemander(id_patient, nom) {
-    let patient = document.getElementById(id_patient);
-    console.log(patient);
-    let sect = document.getElementById(nom)
-    let worklist = document.getElementById('Worklist--box');
-    let demande = document.getElementById('Demande--box');
-    let patientDemande = document.createElement('p');
-  
-    patientDemande.textContent = patient.innerText;
-    demande.appendChild(patientDemande);
-    worklist.removeChild(sect);
-    return true;
-  };
-
-  render() {
-    return (
-      <div id='Worklist--box' className='patient'>
-        {this.state.posts[0].map(posts => (
-          <div id={posts.nom}> 
-            <p id={posts.id_patient} className='Worklist--patient'>
-              {posts.id_patient}
-              {posts.nom}
-              {posts.prenom}
-            </p>
-            <button onClick={() => this.handleOnClickDemander(posts.id_patient, posts.nom)} type='button'>Demander</button>
-          </div>
-        ))}         
-      </div>
-    );
+  const adminUser = {
+    email: "admin@admin.com",
+    password: "admin123"
   }
-}
 
-/*
- Composant Demande, affiche le/les patients demandé(s) 
-*/
+  const [user, setUser] = useState({name: "", email: ""});
+  const [error, setError] = useState("");
 
-function Demande() {
+  const Login = details => {
+    console.log(details)
+
+    if (details.email == adminUser.email && details.password == adminUser.password) {
+      console.log("Logged in")
+      setUser({
+        name: details.name,
+        email: details.email
+      });
+    } else {
+      console.log("Details don't match");
+      setError("Details don't match");
+    }
+  }
+
+  const Logout = () => {
+    setUser({name: "", email: ""});
+  }
+
   return (
-    <section id='Demande--box' className='patient'>
-      
-    </section>
-  )
+    <div className="app">
+      {(user.email != "") ? (
+        <div>
+          <button id='logout' onClick={Logout}>Logout</button>
+          <Home />
+        </div>
+      ) : (
+        <Log Login={Login} error={error} />
+      )}
+    </div>  
+  );
 }
 
-/*
-Affiche le patient arrivé 
-*/
-function Arrive() {
-  return (
-    <section id='Retour--box' className='patient'>
-      <p id='Retour--patient'>
-        20220003
-        Mathilde Goes
-        2001-04-09
-        <button onClick={handleOnClickRetour} type='button'>Retour</button>
-      </p>     
-    </section>
-  )
-}
-
-
-//Composant principal
-export default class App extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      items: [],
-      dataIsLoaded: false
-    };
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <div id='Worklist' className='box'>
-          <h1>Worklist</h1>
-          <Worklist />
-        </div>
-        <div className='box'>
-          <h1>Patients demandés</h1>
-          <Demande />
-        </div>
-        <div className='box'>
-          <h1>Patients arrivés</h1>
-          <Arrive />
-        </div>
-      </div>
-    );
-  }
-  
-}
-
-
-
+export default App;

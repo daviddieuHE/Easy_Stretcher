@@ -1,10 +1,12 @@
 'use strict';
+const cors = require('cors');
 const apiHopital = require('./APIHopital.js');
 var path = require('path');
 var express = require('express');
 
 
 var app = express();
+app.use(cors());
 
 var staticPath = path.join(__dirname, '/');
 app.use(express.static(staticPath));
@@ -18,6 +20,7 @@ var server = app.listen(app.get('port'), function () {
 
 
 const mysql = require('mysql');
+const { stringify } = require('querystring');
 
 const db = mysql.createConnection({
 
@@ -38,9 +41,18 @@ db.connect(function (err) {
 });
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
 });
+
+app.use('/login', (req, res) => {
+  res.send({
+    token: 'test123'
+  });
+});
+app.listen(3001, () => console.log('API is running on http://localhost:3002/login'));
 
 /*app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -87,5 +99,13 @@ app.get('/changementStatus/:id_patient', (req, res) => {
     res.send(results);
   });
 });
+
+
+app.post('/createlogin/:jsons', (req, res) => {
+  console.log(`${req.params["password"]}, ${2}`)
+  });
+/********************** Login **********************/
+
+
 
 //module.exports = db;
