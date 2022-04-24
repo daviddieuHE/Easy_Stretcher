@@ -11,9 +11,9 @@ function Patient({ nom, prenom, id_patient, status, user, handleClick }) {
                 <div>N°{id_patient}</div>
                 <div className="action"> {
                     user == "infirmier" ? <InfirmierActionStatus status={status} handleClick={() => handleClick(id_patient)} />
-                    : <BrancardierActionStatus status={status} handleClick={(status) => handleClick(id_patient, status)} />
+                        : <BrancardierActionStatus status={status} handleClick={(status) => handleClick(id_patient, status)} />
                 }
-                    
+
                 </div>
             </div>
         </div>
@@ -53,10 +53,10 @@ function BrancardierActionStatus({ status, handleClick }) {
             return <div></div>
         case 1:
         case 4:
-            return <button onClick={() => handleClick(status == 1 ? 2 : 5)} className="action-button">accepter</button>
+            return <button onClick={() => handleClick(status + 1)} className="action-button">accepter</button>
         case 2:
         case 5:
-            return <button onClick={() => handleClick(status == 2 ? 3 : 6)} className="action-button">déposé</button>
-}
+            return <button onClick={() => handleClick(status + 1)} className="action-button">déposé</button>
+    }
 }
 export default Patient

@@ -17,17 +17,20 @@ function Brancardier({jour}) {
             <div className="Brancardier">
                 <PatientList
                     title="Demande de transport"
+                    user="brancardier"
                     posts={isLoading ? [] : data.filter(post => post.status == 1 || post.status == 4)}
                     handleClick={(id_patient, status) => statusMutation.mutate({ id_patient, status })}
                 />
                 <PatientList
                     title="Transport en cours"
+                    user="brancardier"
                     posts={isLoading ? [] : data.filter(post => post.status == 2 || post.status == 5 )}
                     handleClick={(id_patient, status) => statusMutation.mutate({ id_patient, status })}
 
                 />
                 <PatientList
                     title="Liste de travail"
+                    user="brancardier"
                     posts={isLoading ? [] : data.filter(post => post.status == 0 || post.status == 3)} />
             </div>
 

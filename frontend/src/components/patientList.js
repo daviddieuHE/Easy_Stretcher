@@ -6,7 +6,7 @@ function PatientList({title, posts, user, handleClick}) {
         <div id={title} className='box'>
             <h1>{title}</h1>
             <div id={`${title}--box`} className='patient'>
-                {posts.map(posts => <Patient {...posts} user={user} handleClick={handleClick} />)}         
+                {posts.map(post => <Patient {...post} user={user} handleClick={handleClick} />)}         
             </div>
         </div>  
     )
