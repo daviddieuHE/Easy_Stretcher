@@ -8,13 +8,13 @@ var express = require('express');
 var app = express();
 app.use(cors());
 
-var staticPath = path.join(__dirname, '/');
+var staticPath = path.resolve(__dirname, "../frontend/build");
 app.use(express.static(staticPath));
 
 // Allows you to set port in the project properties.
 app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function () {
+app.listen(app.get('port'), function () {
     console.log('listening');
 });
 
