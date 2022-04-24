@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from './components/home';
-import Log from './components/login';
+import Home from './pages/home';
+import Log from './pages/login';
 import Brancardier from './components/brancardier';
-import useToken from './useToken';
+import Navbar from './components/navbar';
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
 
   const [user, setUser] = useState({name: "", email: ""});
   const [error, setError] = useState("");
+  const [jour, setJour] = useState("Lundi")
 
   const Login = details => {
     console.log(details)
@@ -31,16 +32,16 @@ function App() {
     }
   }
 
-  const Logout = () => {
+  const logout = () => {
     setUser({name: "", email: ""});
   }
 
   return (
-    <div className="app">
+    <div style={{width: "100%", height: "100%"}}>
       {(user.email != "") ? (
-        <div>
-          <button id='logout' onClick={Logout}>Logout</button>
-          <Home />
+        <div style={{width: "100%", height: "100%"}}>
+          <Navbar logout={logout} jour={jour} handleChange={(e) => setJour(e.target.value)} />
+          <Home jour={jour} />
         </div>
       ) : (
         <Log Login={Login} error={error} />

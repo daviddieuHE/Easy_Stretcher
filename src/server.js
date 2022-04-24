@@ -64,6 +64,7 @@ app.listen(3001, () => console.log('API is running on http://localhost:3002/logi
 app.get('/demande', (req, res) => 
 {
   db.query("CALL patientsJours;", (err, results, fields) => {
+    console.log(results)
     if (err) throw err;
     results[0].forEach(element => 
     {
@@ -92,9 +93,23 @@ app.get('/demande', (req, res) =>
     //res.send(results);
 });
 
+app.get("/patients/:jour", (req, res) => {
+  db.query(`CALL listPatients("${req.params["jour"]}")`, (err, results, fields) => {
+    if (err) throw err;
+    res.send(results[0]);
+  })
+})
+
+app.get("/reset", (req, res) => {
+  db.query(`CALL reset()`, (err, results, fields) => {
+    if (err) throw err;
+    res.send("OK");
+  })
+})
+
 //http://localhost:3000/changementStatus/20220001
-app.get('/changementStatus/:id_patient', (req, res) => {
-  db.query(`CALL changementStatus(${req.params["id_patient"]}, ${2});`, (err, results, fields) => {
+app.get('/changementStatus/:id_patient/:status', (req, res) => {
+  db.query(`CALL changementStatus(${req.params["id_patient"]}, ${req.params["status"]});`, (err, results, fields) => {
     if (err) throw err;
     res.send(results);
   });

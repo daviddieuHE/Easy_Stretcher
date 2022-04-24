@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Patient from "./patient";
 
 class Worklist extends React.Component {
     constructor(props) {
@@ -50,21 +51,14 @@ class Worklist extends React.Component {
     };
   
     render() {
+      console.log(this.props.posts)
       return (
         <div id='Worklist--box' className='patient'>
-          {this.state.posts[0].map(posts => (
-            <div id={posts.nom}> 
-              <p id={posts.id_patient} className='Worklist--patient'>
-                {posts.id_patient}
-                {posts.nom}
-                {posts.prenom}
-              </p>
-              <button onClick={() => this.handleOnClickDemander(posts.id_patient, posts.nom)} type='button'>Demander</button>
-            </div>
-          ))}         
+          {this.props.posts[0].map(posts => <Patient {...posts} />)}         
         </div>
       );
     }
 }
+
 
 export default Worklist;

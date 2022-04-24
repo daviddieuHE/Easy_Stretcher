@@ -21,13 +21,13 @@ class Patient
         return this._listPatients.length;
     }
 
-    constructor(idPatient, nom, prenom, dateNaissance, localisationPatient, chambre, jour)
+    constructor(idPatient, nom, prenom, dateNaissance, status, chambre, jour)
     {
         this.idPatient = idPatient;
         this.nom = nom;
         this.prenom = prenom;
         this.dateNaissance = dateNaissance;
-        this.localisationPatient = localisationPatient;
+        this.status = status;
         this.chambre = chambre;
         this.jour = jour;
     }    
@@ -68,13 +68,13 @@ class Patient
         return this._dateNaissance;
     }
         
-    set localisationPatient(value) 
+    set status(value) 
     {
-        this._localisationPatient = value;
+        this._status = value;
     }
-    get localisationPatient() 
+    get status() 
     {
-        return this._localisationPatient;
+        return this._status;
     }
 
     set chambre(value) 
