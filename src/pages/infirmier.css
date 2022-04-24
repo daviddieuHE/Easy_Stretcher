@@ -36,12 +36,12 @@ p {
 
 
 
-.App{
+.Infirmier{
   flex-wrap: wrap;
   display: flex;
 }
 
-.App > div {
+.Infirmier > div {
     flex: 1;
     background-color: aqua;
     padding: 10px;

@@ -47,12 +47,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/login', (req, res) => {
-  res.send({
-    token: 'test123'
-  });
-});
-app.listen(3001, () => console.log('API is running on http://localhost:3002/login'));
 
 /*app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');

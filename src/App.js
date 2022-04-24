@@ -1,31 +1,40 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from './pages/home';
 import Log from './pages/login';
-import Brancardier from './components/brancardier';
 import Navbar from './components/navbar';
+import Infirmier from './pages/infirmier';
+import Brancardier from "./pages/brancardier"
 
+const infirmierUser = {
+  email: "infirmier@admin.com",
+  password: "infirmier123"
+}
+
+const brancardierUser = {
+  email: "brancardier@admin.com",
+  password: "brancardier123"
+}
 
 function App() {
-  
-  const adminUser = {
-    email: "admin@admin.com",
-    password: "admin123"
-  }
+  return (
+    <div style={{ width: "100%", height: "100%" }}>
+      <Router  />
+    </div>
+  );
+}
 
-  const [user, setUser] = useState({name: "", email: ""});
+function Router() {
+  const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
   const [jour, setJour] = useState("Lundi")
-
+  
   const Login = details => {
-    console.log(details)
-
-    if (details.email == adminUser.email && details.password == adminUser.password) {
-      console.log("Logged in")
+    if ((details.email == infirmierUser.email && details.password == infirmierUser.password) ||
+      (details.email == brancardierUser.email && details.password == brancardierUser.password)) {
       setUser({
         name: details.name,
         email: details.email
-      });
+      })
     } else {
       console.log("Details don't match");
       setError("Details don't match");
@@ -33,21 +42,27 @@ function App() {
   }
 
   const logout = () => {
-    setUser({name: "", email: ""});
+    setUser({ name: "", email: "" });
   }
 
-  return (
-    <div style={{width: "100%", height: "100%"}}>
-      {(user.email != "") ? (
-        <div style={{width: "100%", height: "100%"}}>
+  switch (user.email) {
+    case (infirmierUser.email):
+      return (
+        <div style={{ width: "100%", height: "100%" }}>
           <Navbar logout={logout} jour={jour} handleChange={(e) => setJour(e.target.value)} />
-          <Home jour={jour} />
+          <Infirmier jour={jour} />
         </div>
-      ) : (
-        <Log Login={Login} error={error} />
-      )}
-    </div>  
-  );
+      )
+    case (brancardierUser.email):
+      return (
+        <div style={{ width: "100%", height: "100%" }}>
+          <Navbar logout={logout} jour={jour} handleChange={(e) => setJour(e.target.value)} />
+          <Brancardier jour={jour} />
+        </div>
+      )
+    default:
+      return <Log Login={Login} error={error} />
+  }
 }
 
 export default App;

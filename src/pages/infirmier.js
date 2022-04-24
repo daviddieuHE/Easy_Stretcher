@@ -1,11 +1,11 @@
 import React from 'react';
-import './home.css';
+import "./infirmier.css"
 import PatientList from '../components/patientList';
 import { getPatients, updateStatus } from '../request';
 import { useQuery, useMutation } from "react-query"
 
 
-function Home({jour}) {
+function Infirmier({jour}) {
     const { data, isLoading, refetch } = useQuery(["patients", jour], () => getPatients(jour), {
         refetchInterval: 1000
     })
@@ -14,18 +14,21 @@ function Home({jour}) {
     });
 
     return (
-            <div className="App">
+            <div className="Infirmier">
                 <PatientList
                     title="Worklist"
+                    user="infirmier"
                     posts={isLoading ? [] : data.filter(post => post.status == 0)}
-                    handleClick={(id_patient) => statusMutation.mutate({ id_patient, status: 2 })}
+                    handleClick={(id_patient) => statusMutation.mutate({ id_patient, status: 1 })}
                 />
                 <PatientList
                     title="Patients demandés"
+                    user="infirmier"
                     posts={isLoading ? [] : data.filter(post => post.status == 1 || post.status == 2)}
                 />
                 <PatientList
-                    title="Patiens arrivés"
+                    title="Patients arrivés"
+                    user="infirmier"
                     posts={isLoading ? [] : data.filter(post => post.status == 3 || post.status == 4)}
                     handleClick={(id_patient) => statusMutation.mutate({ id_patient, status: 4 })} />
             </div>
@@ -33,4 +36,4 @@ function Home({jour}) {
     )
 }
 
-export default Home;
+export default Infirmier;

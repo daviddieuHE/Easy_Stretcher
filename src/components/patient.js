@@ -1,7 +1,7 @@
 import React from "react"
 import "./patient.css"
 
-function Patient({ nom, prenom, id_patient, status, handleClick }) {
+function Patient({ nom, prenom, id_patient, status, user, handleClick }) {
     return (
         <div id={nom} className="patient-container">
             <div className="patient-info">
@@ -9,15 +9,18 @@ function Patient({ nom, prenom, id_patient, status, handleClick }) {
             </div>
             <div className="patient-action">
                 <div>N°{id_patient}</div>
-                <div className="action">
-                    <ActionStatus status={status} handleClick={() => handleClick(id_patient)} />
+                <div className="action"> {
+                    user == "infirmier" ? <InfirmierActionStatus status={status} handleClick={() => handleClick(id_patient)} />
+                    : <BrancardierActionStatus status={status} handleClick={(status) => handleClick(id_patient, status)} />
+                }
+                    
                 </div>
             </div>
         </div>
     )
 }
 
-function ActionStatus({ status, handleClick }) {
+function InfirmierActionStatus({ status, handleClick }) {
     switch (status) {
         case 0:
             return <button onClick={handleClick} className="action-button">demander</button>
@@ -44,4 +47,16 @@ function ActionStatus({ status, handleClick }) {
     }
 }
 
+function BrancardierActionStatus({ status, handleClick }) {
+    switch (status) {
+        case 0:
+            return <div></div>
+        case 1:
+        case 4:
+            return <button onClick={() => handleClick(status == 1 ? 2 : 5)} className="action-button">accepter</button>
+        case 2:
+        case 5:
+            return <button onClick={() => handleClick(status == 2 ? 3 : 6)} className="action-button">déposé</button>
+}
+}
 export default Patient
