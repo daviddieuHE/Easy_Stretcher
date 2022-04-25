@@ -1,0 +1,295 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.8": {
+      "Wisej-2/2.5.23": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Wisej.Framework.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Wisej.Framework.dll": {}
+        },
+        "resource": {
+          "lib/net48/de/Wisej.Framework.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net48/es/Wisej.Framework.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net48/fr/Wisej.Framework.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net48/it/Wisej.Framework.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net48/pt/Wisej.Framework.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net48/tr/Wisej.Framework.resources.dll": {
+            "locale": "tr"
+          }
+        }
+      },
+      "Wisej-2-CustomWallpaper/2.5.32": {
+        "type": "package",
+        "dependencies": {
+          "Wisej-2": "2.5.32"
+        },
+        "compile": {
+          "lib/net48/Wisej.Web.Ext.CustomWallpaper.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Wisej.Web.Ext.CustomWallpaper.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win": {
+      "Wisej-2/2.5.23": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Wisej.Framework.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Wisej.Framework.dll": {}
+        },
+        "resource": {
+          "lib/net48/de/Wisej.Framework.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net48/es/Wisej.Framework.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net48/fr/Wisej.Framework.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net48/it/Wisej.Framework.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net48/pt/Wisej.Framework.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net48/tr/Wisej.Framework.resources.dll": {
+            "locale": "tr"
+          }
+        }
+      },
+      "Wisej-2-CustomWallpaper/2.5.32": {
+        "type": "package",
+        "dependencies": {
+          "Wisej-2": "2.5.32"
+        },
+        "compile": {
+          "lib/net48/Wisej.Web.Ext.CustomWallpaper.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Wisej.Web.Ext.CustomWallpaper.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win-x64": {
+      "Wisej-2/2.5.23": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Wisej.Framework.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Wisej.Framework.dll": {}
+        },
+        "resource": {
+          "lib/net48/de/Wisej.Framework.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net48/es/Wisej.Framework.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net48/fr/Wisej.Framework.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net48/it/Wisej.Framework.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net48/pt/Wisej.Framework.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net48/tr/Wisej.Framework.resources.dll": {
+            "locale": "tr"
+          }
+        }
+      },
+      "Wisej-2-CustomWallpaper/2.5.32": {
+        "type": "package",
+        "dependencies": {
+          "Wisej-2": "2.5.32"
+        },
+        "compile": {
+          "lib/net48/Wisej.Web.Ext.CustomWallpaper.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Wisej.Web.Ext.CustomWallpaper.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8/win-x86": {
+      "Wisej-2/2.5.23": {
+        "type": "package",
+        "compile": {
+          "lib/net48/Wisej.Framework.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Wisej.Framework.dll": {}
+        },
+        "resource": {
+          "lib/net48/de/Wisej.Framework.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net48/es/Wisej.Framework.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net48/fr/Wisej.Framework.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net48/it/Wisej.Framework.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net48/pt/Wisej.Framework.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net48/tr/Wisej.Framework.resources.dll": {
+            "locale": "tr"
+          }
+        }
+      },
+      "Wisej-2-CustomWallpaper/2.5.32": {
+        "type": "package",
+        "dependencies": {
+          "Wisej-2": "2.5.32"
+        },
+        "compile": {
+          "lib/net48/Wisej.Web.Ext.CustomWallpaper.dll": {}
+        },
+        "runtime": {
+          "lib/net48/Wisej.Web.Ext.CustomWallpaper.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Wisej-2/2.5.23": {
+      "sha512": "lsWeCBaHziY3d6nocobAvcIGEkZc9jN0oJQBYJdUPPnsASpTVB9qr/QJMZQOk9MY6+fww9rJpDUKZM+cmRl8zQ==",
+      "type": "package",
+      "path": "wisej-2/2.5.23",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net48/Wisej.Framework.dll",
+        "lib/net48/Wisej.Framework.xml",
+        "lib/net48/de/Wisej.Framework.resources.dll",
+        "lib/net48/es/Wisej.Framework.resources.dll",
+        "lib/net48/fr/Wisej.Framework.resources.dll",
+        "lib/net48/it/Wisej.Framework.resources.dll",
+        "lib/net48/pt/Wisej.Framework.resources.dll",
+        "lib/net48/tr/Wisej.Framework.resources.dll",
+        "wisej-2.2.5.23.nupkg.sha512",
+        "wisej-2.nuspec"
+      ]
+    },
+    "Wisej-2-CustomWallpaper/2.5.32": {
+      "sha512": "HJbolBtKOHDYqmJIp/+8gVoWOoMmvCtg+jR4p7B7YPuwiLXz1uotSOyVf/EmTDcjIRUnh7MF3UNz/LBJ4QOVAA==",
+      "type": "package",
+      "path": "wisej-2-customwallpaper/2.5.32",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/Wisej.png",
+        "lib/net48/Wisej.Web.Ext.CustomWallpaper.dll",
+        "lib/net48/Wisej.Web.Ext.CustomWallpaper.xml",
+        "wisej-2-customwallpaper.2.5.32.nupkg.sha512",
+        "wisej-2-customwallpaper.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.8": [
+      "Wisej-2 >= 2.5.23",
+      "Wisej-2-CustomWallpaper >= 2.5.32"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Arsium\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\Easy_Stretcher.csproj",
+      "projectName": "Easy_Stretcher",
+      "projectPath": "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\Easy_Stretcher.csproj",
+      "packagesPath": "C:\\Users\\Arsium\\.nuget\\packages\\",
+      "outputPath": "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Arsium\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Wisej-2.5.config"
+      ],
+      "originalTargetFrameworks": [
+        "net48"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\IceTeaGroup\\Wisej 2.5\\nuget\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net48": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net48": {
+        "dependencies": {
+          "Wisej-2": {
+            "target": "Package",
+            "version": "[2.5.23, )"
+          },
+          "Wisej-2-CustomWallpaper": {
+            "target": "Package",
+            "version": "[2.5.32, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Passage à une version antérieure du package détecté : Wisej-2 de 2.5.32 à 2.5.23. Référencez le package directement à partir du projet pour sélectionner une version différente. \r\n Easy_Stretcher -> Wisej-2-CustomWallpaper 2.5.32 -> Wisej-2 (>= 2.5.32) \r\n Easy_Stretcher -> Wisej-2 (>= 2.5.23)",
+      "libraryId": "Wisej-2",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.8",
+        ".NETFramework,Version=v4.8/win",
+        ".NETFramework,Version=v4.8/win-x64",
+        ".NETFramework,Version=v4.8/win-x86"
+      ]
+    }
+  ]
+}

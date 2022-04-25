@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "S2TJaw7ukBuPFAufrtqadVLAOqK7c1GOCly/NavXSMbpPsS56rizEFUXwNr+lph/xaCAOJ7WqrF30m0DZj3Lsw==",
+  "success": true,
+  "projectFilePath": "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\Easy_Stretcher.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Arsium\\.nuget\\packages\\wisej-2\\2.5.23\\wisej-2.2.5.23.nupkg.sha512",
+    "C:\\Users\\Arsium\\.nuget\\packages\\wisej-2-customwallpaper\\2.5.32\\wisej-2-customwallpaper.2.5.32.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Passage à une version antérieure du package détecté : Wisej-2 de 2.5.32 à 2.5.23. Référencez le package directement à partir du projet pour sélectionner une version différente. \r\n Easy_Stretcher -> Wisej-2-CustomWallpaper 2.5.32 -> Wisej-2 (>= 2.5.32) \r\n Easy_Stretcher -> Wisej-2 (>= 2.5.23)",
+      "libraryId": "Wisej-2",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.8",
+        ".NETFramework,Version=v4.8/win",
+        ".NETFramework,Version=v4.8/win-x64",
+        ".NETFramework,Version=v4.8/win-x86"
+      ]
+    }
+  ]
+}

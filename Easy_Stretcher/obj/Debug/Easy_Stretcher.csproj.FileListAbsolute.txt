@@ -1,0 +1,15 @@
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\Easy_Stretcher.dll.config
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\Easy_Stretcher.dll
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\Easy_Stretcher.pdb
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\Wisej.Framework.dll
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\de\Wisej.Framework.resources.dll
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\es\Wisej.Framework.resources.dll
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\fr\Wisej.Framework.resources.dll
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\it\Wisej.Framework.resources.dll
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\pt\Wisej.Framework.resources.dll
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\tr\Wisej.Framework.resources.dll
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\obj\Debug\Easy_Stretcher.csproj.AssemblyReference.cache
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\obj\Debug\Easy_Stretcher.csproj.CoreCompileInputs.cache
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\obj\Debug\Easy_Stretcher.csproj.CopyComplete
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\obj\Debug\Easy_Stretcher.dll
+D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\obj\Debug\Easy_Stretcher.pdb

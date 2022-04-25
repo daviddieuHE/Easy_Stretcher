@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <History>True|2022-04-23T18:46:08.4535941Z;True|2022-04-22T13:59:53.5950160+02:00;True|2022-04-22T13:59:39.7338864+02:00;True|2022-04-22T12:36:19.6912901+02:00;True|2022-04-22T12:21:56.2385457+02:00;True|2022-04-22T11:50:52.3048984+02:00;True|2022-04-22T11:36:16.1364959+02:00;True|2022-04-22T11:35:54.0780088+02:00;True|2022-04-22T11:34:19.8157146+02:00;True|2022-04-22T11:34:08.7112068+02:00;True|2022-04-22T11:31:39.1009190+02:00;True|2022-04-22T11:26:53.6999484+02:00;True|2022-04-22T00:19:46.2881614+02:00;False|2022-04-22T00:18:54.2144270+02:00;</History>
+    <_PublishTargetUrl>D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\app.publish\</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/BouncyCastle.Crypto.dll">
+      <publishTime>01/31/2019 20:53:56</publishTime>
+    </File>
+    <File Include="bin/de/Wisej.Framework.resources.dll">
+      <publishTime>01/11/2022 22:43:54</publishTime>
+    </File>
+    <File Include="bin/Easy_Stretcher.dll">
+      <publishTime>04/23/2022 20:39:34</publishTime>
+    </File>
+    <File Include="bin/Easy_Stretcher.pdb">
+      <publishTime>04/23/2022 20:39:34</publishTime>
+    </File>
+    <File Include="bin/es/Wisej.Framework.resources.dll">
+      <publishTime>01/11/2022 22:43:54</publishTime>
+    </File>
+    <File Include="bin/fr/Wisej.Framework.resources.dll">
+      <publishTime>01/11/2022 22:43:54</publishTime>
+    </File>
+    <File Include="bin/Google.Protobuf.dll">
+      <publishTime>11/13/2020 16:09:34</publishTime>
+    </File>
+    <File Include="bin/it/Wisej.Framework.resources.dll">
+      <publishTime>01/11/2022 22:43:54</publishTime>
+    </File>
+    <File Include="bin/K4os.Compression.LZ4.dll">
+      <publishTime>09/12/2020 03:11:58</publishTime>
+    </File>
+    <File Include="bin/K4os.Compression.LZ4.Streams.dll">
+      <publishTime>09/12/2020 03:12:00</publishTime>
+    </File>
+    <File Include="bin/K4os.Hash.xxHash.dll">
+      <publishTime>07/03/2019 22:39:02</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>12/02/2021 00:08:56</publishTime>
+    </File>
+    <File Include="bin/pt/Wisej.Framework.resources.dll">
+      <publishTime>01/11/2022 22:43:54</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>02/19/2020 11:05:18</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>04/23/2022 19:08:24</publishTime>
+    </File>
+    <File Include="bin/tr/Wisej.Framework.resources.dll">
+      <publishTime>01/11/2022 22:43:54</publishTime>
+    </File>
+    <File Include="bin/Ubiety.Dns.Core.dll">
+      <publishTime>12/02/2021 00:07:26</publishTime>
+    </File>
+    <File Include="bin/Wisej.Framework.dll">
+      <publishTime>01/11/2022 22:43:52</publishTime>
+    </File>
+    <File Include="bin/Wisej.Web.Ext.CustomWallpaper.dll">
+      <publishTime>04/18/2022 20:40:42</publishTime>
+    </File>
+    <File Include="bin/ZstdNet.dll">
+      <publishTime>12/02/2021 00:07:26</publishTime>
+    </File>
+    <File Include="Default.html">
+      <publishTime>04/22/2022 11:59:16</publishTime>
+    </File>
+    <File Include="Default.json">
+      <publishTime>04/21/2022 20:28:44</publishTime>
+    </File>
+    <File Include="disability-filled.ico">
+      <publishTime>04/22/2022 11:58:34</publishTime>
+    </File>
+    <File Include="disability-filled_large%402x.png">
+      <publishTime>04/22/2022 11:59:12</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>04/22/2022 11:56:12</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/23/2022 20:46:08</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

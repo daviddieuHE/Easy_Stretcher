@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\Easy_Stretcher.csproj": {}
+  },
+  "projects": {
+    "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\Easy_Stretcher.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\Easy_Stretcher.csproj",
+        "projectName": "Easy_Stretcher",
+        "projectPath": "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\Easy_Stretcher.csproj",
+        "packagesPath": "C:\\Users\\Arsium\\.nuget\\packages\\",
+        "outputPath": "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Arsium\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Wisej-2.5.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\IceTeaGroup\\Wisej 2.5\\nuget\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "Wisej-2": {
+              "target": "Package",
+              "version": "[2.5.23, )"
+            },
+            "Wisej-2-CustomWallpaper": {
+              "target": "Package",
+              "version": "[2.5.32, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
