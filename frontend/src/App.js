@@ -15,6 +15,9 @@ const brancardierUser = {
   password: "brancardier123"
 }
 
+
+//Fonction App renvoie le composant Router
+
 function App() {
   return (
     <div style={{ width: "100%", height: "100%" }}>
@@ -23,6 +26,8 @@ function App() {
   );
 }
 
+
+//Fonction Router renvoie la page Login, Infirmier ou Brancardier selon les log.
 function Router() {
   const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
@@ -45,6 +50,8 @@ function Router() {
     setUser({ name: "", email: "" });
   }
 
+
+  //Switch Case pour savoir quels sont les log et donc afficher la bonne page.
   switch (user.email) {
     case (infirmierUser.email):
       return (

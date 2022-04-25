@@ -1,6 +1,8 @@
 import React from "react"
 import "./patient.css"
 
+
+//Fonction Patient retourne la structure de l'affichage d'un patient.
 function Patient({ nom, prenom, id_patient, status, user, handleClick }) {
     return (
         <div id={nom} className="patient-container">
@@ -20,6 +22,8 @@ function Patient({ nom, prenom, id_patient, status, user, handleClick }) {
     )
 }
 
+
+//Fonction qui selon le status du patient retourne un boutton ou un état.
 function InfirmierActionStatus({ status, handleClick }) {
     switch (status) {
         case 0:
@@ -47,6 +51,8 @@ function InfirmierActionStatus({ status, handleClick }) {
     }
 }
 
+
+//Fonction qui selon le status du patient retourne un boutton ou rien.
 function BrancardierActionStatus({ status, handleClick }) {
     switch (status) {
         case 0:

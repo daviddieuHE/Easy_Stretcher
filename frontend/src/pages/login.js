@@ -3,12 +3,12 @@ import './login.css'
 
 
 
-
+//Page de Login
 export default function Log({ Login, error }) {
   const [details, setDetails] = useState({name: "", email: "", password: ""});
   
   const submiHandler = e => {
-    e.preventDefault();
+    e.preventDefault();//prévient l'erreur.
 
     Login(details);
   }
