@@ -61,10 +61,10 @@ namespace Easy_Stretcher
                                 string nom = reader["nom"].ToString();
                                 string prenom = reader["prenom"].ToString();
                                 string date_naissance = reader["date_naiss"].ToString();
-                                string loc_patient = reader["loc_patient"].ToString();
+                                //string loc_patient = reader["loc_patient"].ToString();
                                 string chambre = reader["chambre"].ToString();
                                 string jour = reader["jour"].ToString();
-                                patientAPIs.Add(new PatientAPI(id_patient, nom, prenom, date_naissance, loc_patient, chambre, jour));
+                                patientAPIs.Add(new PatientAPI(id_patient, nom, prenom, date_naissance, "0", chambre, jour));
                             }
                         }
                     }

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "S2TJaw7ukBuPFAufrtqadVLAOqK7c1GOCly/NavXSMbpPsS56rizEFUXwNr+lph/xaCAOJ7WqrF30m0DZj3Lsw==",
+  "dgSpecHash": "sb3aMn5HmTRavvE+lWXRPJs5E/nfdwG6FbkLNVkU7lJf9MvWaFIbX2+c6k+vqcksICZEODKQnIdNdXYXG5hEBQ==",
   "success": true,
-  "projectFilePath": "D:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\Easy_Stretcher.csproj",
+  "projectFilePath": "E:\\личный\\программирование\\C#\\Easy_Stretcher\\Easy_Stretcher\\Easy_Stretcher.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Arsium\\.nuget\\packages\\wisej-2\\2.5.23\\wisej-2.2.5.23.nupkg.sha512",
-    "C:\\Users\\Arsium\\.nuget\\packages\\wisej-2-customwallpaper\\2.5.32\\wisej-2-customwallpaper.2.5.32.nupkg.sha512"
+    "C:\\Users\\mehdi\\.nuget\\packages\\wisej-2\\2.5.23\\wisej-2.2.5.23.nupkg.sha512",
+    "C:\\Users\\mehdi\\.nuget\\packages\\wisej-2-customwallpaper\\2.5.32\\wisej-2-customwallpaper.2.5.32.nupkg.sha512"
   ],
   "logs": [
     {

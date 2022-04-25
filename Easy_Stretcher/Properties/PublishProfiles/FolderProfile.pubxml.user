@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <History>True|2022-04-23T18:46:08.4535941Z;True|2022-04-22T13:59:53.5950160+02:00;True|2022-04-22T13:59:39.7338864+02:00;True|2022-04-22T12:36:19.6912901+02:00;True|2022-04-22T12:21:56.2385457+02:00;True|2022-04-22T11:50:52.3048984+02:00;True|2022-04-22T11:36:16.1364959+02:00;True|2022-04-22T11:35:54.0780088+02:00;True|2022-04-22T11:34:19.8157146+02:00;True|2022-04-22T11:34:08.7112068+02:00;True|2022-04-22T11:31:39.1009190+02:00;True|2022-04-22T11:26:53.6999484+02:00;True|2022-04-22T00:19:46.2881614+02:00;False|2022-04-22T00:18:54.2144270+02:00;</History>
-    <_PublishTargetUrl>D:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\app.publish\</_PublishTargetUrl>
+    <History>True|2022-04-25T07:49:38.6644605Z;True|2022-04-25T09:49:22.7556076+02:00;True|2022-04-23T20:46:08.4535941+02:00;True|2022-04-22T13:59:53.5950160+02:00;True|2022-04-22T13:59:39.7338864+02:00;True|2022-04-22T12:36:19.6912901+02:00;True|2022-04-22T12:21:56.2385457+02:00;True|2022-04-22T11:50:52.3048984+02:00;True|2022-04-22T11:36:16.1364959+02:00;True|2022-04-22T11:35:54.0780088+02:00;True|2022-04-22T11:34:19.8157146+02:00;True|2022-04-22T11:34:08.7112068+02:00;True|2022-04-22T11:31:39.1009190+02:00;True|2022-04-22T11:26:53.6999484+02:00;True|2022-04-22T00:19:46.2881614+02:00;False|2022-04-22T00:18:54.2144270+02:00;</History>
+    <_PublishTargetUrl>E:\личный\программирование\C#\Easy_Stretcher\Easy_Stretcher\bin\app.publish\</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BouncyCastle.Crypto.dll">
@@ -15,10 +15,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/11/2022 22:43:54</publishTime>
     </File>
     <File Include="bin/Easy_Stretcher.dll">
-      <publishTime>04/23/2022 20:39:34</publishTime>
+      <publishTime>04/25/2022 09:48:50</publishTime>
     </File>
     <File Include="bin/Easy_Stretcher.pdb">
-      <publishTime>04/23/2022 20:39:34</publishTime>
+      <publishTime>04/25/2022 09:48:50</publishTime>
     </File>
     <File Include="bin/es/Wisej.Framework.resources.dll">
       <publishTime>01/11/2022 22:43:54</publishTime>
@@ -51,7 +51,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/19/2020 11:05:18</publishTime>
     </File>
     <File Include="bin/System.Memory.dll">
-      <publishTime>04/23/2022 19:08:24</publishTime>
+      <publishTime>04/02/2022 18:10:44</publishTime>
     </File>
     <File Include="bin/tr/Wisej.Framework.resources.dll">
       <publishTime>01/11/2022 22:43:54</publishTime>
@@ -84,7 +84,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/22/2022 11:56:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/23/2022 20:46:08</publishTime>
+      <publishTime>04/25/2022 09:49:24</publishTime>
     </File>
   </ItemGroup>
 </Project>
