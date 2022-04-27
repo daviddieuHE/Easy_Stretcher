@@ -7,13 +7,32 @@
     padding: 10px;
 }
 
-.patient-action {
+.patient-container > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.action * {
+.patient-action {
+    margin-top: 10px;
+}
+
+.bed {
+    background: "transparent";
+    display: "flex";
+    align-items: "center";
+}
+
+.action > button {
+    background-color: rgb(165, 72, 72);
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    font-size: 12pt;
+    user-select: none;
+}
+
+.action > div {
     background-color: rgb(165, 72, 72);
     border-radius: 5px;
     padding: 5px;

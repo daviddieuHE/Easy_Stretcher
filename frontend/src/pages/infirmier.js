@@ -1,7 +1,7 @@
 import React from 'react';
 import "./infirmier.css"
 import PatientList from '../components/patientList';
-import { getPatients, updateStatus } from '../request';
+import { getPatients, requestPatient, updateStatus } from '../request';
 import { useQuery, useMutation } from "react-query"
 
 
@@ -13,13 +13,17 @@ function Infirmier({jour}) {
         onSuccess: refetch
     });
 
+    const requestMutation = useMutation(requestPatient, {
+        onSuccess: refetch
+    })
+
     return (
             <div className="Infirmier">
                 <PatientList
                     title="Worklist"
                     user="infirmier"
                     posts={isLoading ? [] : data.filter(post => post.status == 0)}
-                    handleClick={(id_patient) => statusMutation.mutate({ id_patient, status: 1 })}
+                    handleClick={(id_patient, isBed) => requestMutation.mutate({ id_patient, isBed })}
                 />
                 <PatientList
                     title="Patients demandés"

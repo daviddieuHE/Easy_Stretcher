@@ -16,9 +16,14 @@ const brancardierUser = {
 }
 
 function App() {
+  useState(() => {
+    if ('Notification' in window)
+      Notification.requestPermission()
+  })
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      <Router  />
+      <Router />
     </div>
   );
 }
@@ -27,7 +32,7 @@ function Router() {
   const [user, setUser] = useState({ name: "", email: "" });
   const [error, setError] = useState("");
   const [jour, setJour] = useState("Lundi")
-  
+
   const Login = details => {
     if ((details.email == infirmierUser.email && details.password == infirmierUser.password) ||
       (details.email == brancardierUser.email && details.password == brancardierUser.password)) {

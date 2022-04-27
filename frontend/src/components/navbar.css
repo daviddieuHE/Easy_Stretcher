@@ -34,3 +34,15 @@ button {
 .day-picker:focus {
     outline: none;
 }
+
+@media only screen and (max-width: 600px) {
+   
+    .navbar {
+        padding: 0px 10px;
+    }
+    img {
+        height: 30px;
+    }
+    
+    
+  }
