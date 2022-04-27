@@ -3,6 +3,7 @@ import "./patient.css"
 import bed from "../img/bed.png"
 import chair from "../img/chair.png"
 
+//Fonction Patient retourne la structure de l'affichage d'un patient.
 function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, user, handleClick }) {
     const [timer, setTimer] = useState(0)
     const [audio, setAudio] = useState(false)
@@ -15,6 +16,7 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, us
     useEffect(() => {
         if ((status == 1 || status == 4) && user == "brancardier") {
             if (audio) return;
+            console.log(audio, status, user)
             const sound = new Audio("/api/static/dong.mp3")
             setAudio(true)
             sound.play()
@@ -74,6 +76,7 @@ function InfirmierTransportButton({ handleClick }) {
     )
 }
 
+//Fonction qui selon le status du patient retourne un boutton ou un état.
 function InfirmierActionStatus({ status, handleClick }) {
     switch (status) {
         case 0:
@@ -101,6 +104,7 @@ function InfirmierActionStatus({ status, handleClick }) {
     }
 }
 
+//Fonction qui selon le status du patient retourne un boutton ou rien.
 function BrancardierActionStatus({ status, isBed, handleClick }) {
     switch (status) {
         case 1:

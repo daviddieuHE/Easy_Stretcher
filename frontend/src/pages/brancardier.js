@@ -5,6 +5,7 @@ import { getPatients, updateStatus } from '../request';
 import { useQuery, useMutation } from "react-query"
 
 
+//Page Brancardier, recupp les données depuila db toutes les sec.
 function Brancardier({jour}) {
     const { data, isLoading, refetch } = useQuery(["patients", jour], () => getPatients(jour), {
         refetchInterval: 1000

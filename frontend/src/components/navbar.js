@@ -4,6 +4,8 @@ import logo from "../img/logo.png"
 import { resetTable } from "../request"
 import {useMutation, useQueryClient} from "react-query"
 
+
+//Composant de la bar de vavigation. Contient Logo, button Logout, selection du jour et button Reset.
 function Navbar({logout,jour, handleChange}) {
     const queryClient = useQueryClient()
 
