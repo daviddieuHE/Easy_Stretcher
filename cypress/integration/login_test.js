@@ -4,8 +4,14 @@ describe('login', () => {
     it('user can login', () => {
         //login
         cy.visit('http://localhost:3001/');
+        cy.findByRole('button', {  name: /login/i}).click();
         cy.findByRole('textbox', {  name: /email/i}).type('infirmier@admin.com');
         cy.findByLabelText(/password/i).type('infirmier123');
         cy.findByRole('button', {  name: /login/i}).click();
+        cy.findByRole('button', {  name: /logout/i}).click();
+        cy.findByRole('textbox', {  name: /email/i}).type('brancardier@admin.com');
+        cy.findByLabelText(/password/i).type('brancardier123');
+        cy.findByRole('button', {  name: /login/i}).click();
+        cy.findByRole('button', {  name: /logout/i}).click();
     });
 });
