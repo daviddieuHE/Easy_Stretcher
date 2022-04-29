@@ -18,5 +18,9 @@
   },
   "engines": {
     "node": "18.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^8.0.2",
+    "cypress": "^9.6.0"
   }
 }
