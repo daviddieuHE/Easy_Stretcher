@@ -15,7 +15,7 @@ export default function Log({ Login, error }) {
 
 //TODO : login
   return (
-      <div data-testid = "logindiv" className="login-wrapper">
+      <div data-testid = "loginDiv" className="login-wrapper">
           
           <form onSubmit={submiHandler}>
             <div className="form-inner">
