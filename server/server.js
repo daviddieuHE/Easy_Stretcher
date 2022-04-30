@@ -39,9 +39,11 @@ app.get("/api/patients/:jour", expressjwt({ secret: JWT_SECRET, algorithms:["HS2
   db.query(`CALL listPatients("${req.params["jour"]}")`, (err, results, fields) => {
     if (err) return res.status(500).send(err);
     const date = new Date();
-const offset = date.getTimezoneOffset();
-console.log(offset)   
-    res.send(results ? results[0] : []);
+    const offset = date.getTimezoneOffset();
+    res.send(results ? results[0].map(res => {
+      const last_changed_status = res.last_changed_status - 1000*60 * (120+offset)
+      return {...res, last_changed_status: last_changed_status}
+    }) : []);
   })
 })
 
