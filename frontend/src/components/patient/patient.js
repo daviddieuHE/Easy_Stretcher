@@ -9,9 +9,10 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, us
     const [audio, setAudio] = useState(false)
 
     useEffect(() => {
+        if(status == 0 || status == 3) return;
         const interval = setInterval(() => setTimer(Math.abs((Date.now() - new Date(last_changed_status)) / 1000).toFixed(0)), 1000)
         return () => clearInterval(interval)
-    }, [])
+    }, [status])
 
     useEffect(() => {
         if ((status == 1 || status == 4) && user == "brancardier") {
