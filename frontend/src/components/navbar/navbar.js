@@ -1,15 +1,15 @@
 import React from "react"
 import "./navbar.css"
-import logo from "../img/logo.png"
-import { resetTable } from "../request"
+import logo from "../../img/logo.png"
+import { resetTable } from "../../request"
 import {useMutation, useQueryClient} from "react-query"
 
 
 //Composant de la bar de vavigation. Contient Logo, button Logout, selection du jour et button Reset.
-function Navbar({logout,jour, handleChange}) {
+function Navbar({logout,jour, handleChange, token}) {
     const queryClient = useQueryClient()
 
-    const resetMutation = useMutation(resetTable, {
+    const resetMutation = useMutation(() => resetTable(token), {
         onSuccess: () => queryClient.refetchQueries("patients")
     })
 

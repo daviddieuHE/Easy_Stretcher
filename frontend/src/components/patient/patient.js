@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "./patient.css"
-import bed from "../img/bed.png"
-import chair from "../img/chair.png"
+import bed from "../../img/bed.png"
+import chair from "../../img/chair.png"
 
 //Fonction Patient retourne la structure de l'affichage d'un patient.
 function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, user, handleClick }) {
@@ -21,7 +21,6 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, us
             setAudio(true)
             sound.play()
             sound.addEventListener("ended", () => {
-                console.log("End")
                 setAudio(false)
             })
         }
@@ -43,7 +42,7 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, us
                 <div>
                     <div className="action"> {
                         user == "infirmier" ? <InfirmierActionStatus status={status} handleClick={(isBed) => handleClick(id_patient, isBed)} />
-                            : <BrancardierActionStatus status={status} isBed={bed} handleClick={(status) => handleClick(id_patient, status)} />
+                            : <BrancardierActionStatus status={status} isBed={bed} handleClick={() => handleClick(id_patient, status + 1)} />
                     }
 
                     </div>
@@ -120,11 +119,11 @@ function BrancardierActionStatus({ status, isBed, handleClick }) {
                         height: "35px",
                         marginRight: "10px"
                     }} />
-                    <button onClick={() => handleClick(status + 1)} className="action-button">accepter</button>
+                    <button onClick={handleClick} className="action-button">accepter</button>
                 </div>)
         case 2:
         case 5:
-            return <button onClick={() => handleClick(status + 1)} className="action-button">déposé</button>
+            return <button onClick={handleClick} className="action-button">déposé</button>
     }
 }
 export default Patient

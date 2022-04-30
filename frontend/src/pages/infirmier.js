@@ -1,20 +1,20 @@
 import React from 'react';
 import "./infirmier.css"
-import PatientList from '../components/patientList';
+import PatientList from '../components/patientList/patientList';
 import { getPatients, requestPatient, updateStatus } from '../request';
 import { useQuery, useMutation } from "react-query"
 
 
 //Page infirmier, récupp les données depuis la db toutes les secondes.
-function Infirmier({jour}) {
-    const { data, isLoading, refetch } = useQuery(["patients", jour], () => getPatients(jour), {
+function Infirmier({jour, token}) {
+    const { data, isLoading, refetch } = useQuery(["patients", jour], () => getPatients(jour, token), {
         refetchInterval: 1000
     })
-    const statusMutation = useMutation(updateStatus, {
+    const statusMutation = useMutation((values) => updateStatus(values, token), {
         onSuccess: refetch
     });
 
-    const requestMutation = useMutation(requestPatient, {
+    const requestMutation = useMutation((values) => requestPatient(values, token), {
         onSuccess: refetch
     })
 

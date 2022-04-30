@@ -1,34 +1,30 @@
 'use strict';
-const cors = require('cors');
-const apiHopital = require('./APIHopital.js');
-var path = require('path');
-var express = require('express');
-
-
-var app = express();
-app.use(cors());
-
-var staticPath = path.resolve(__dirname, "../frontend/build");
-app.use(express.static(staticPath));
-
-// Allows you to set port in the project properties.
-app.set('port', process.env.PORT || 3000);
-
-app.listen(app.get('port'), function () {
-  console.log('listening');
-});
-
-
+const express = require('express'); // creation de l'API
+const cors = require('cors'); // sécurisation d'envois de requête depuis l'URL
+const path = require('path'); // acceder aux fichiers du filesystem sur le serveur
 const mysql = require('mysql');
-const { stringify } = require('querystring');
+const jwt = require("jsonwebtoken")
+const { expressjwt } = require("express-jwt")
 
-const db = mysql.createPool({
+const JWT_SECRET = "EASYSTRETCHER"
+
+// Database configuration 
+const db = mysql.createPool({ // pool permets d'avoir plusieurs connexion au cas ou en perds une de pas devoir se reco
   connectionLimit: 5,
   host: "devweb.sytes.net",
   user: "mabite",
   password: "jFw-sL8-Ntc-jvQ",
   database: "hopital"
 });
+
+// Server configuration
+const app = express();
+app.use(cors());
+
+const staticPath = path.resolve(__dirname, "../frontend/build");
+app.use("/", express.static(staticPath));
+app.use("/api/static", express.static(__dirname + "/static")) // acceder aux ressources du dossier static (ici le dong)
+app.use(express.json())
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -38,78 +34,61 @@ app.use((req, res, next) => {
 });
 
 
-/*app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-  next();
-});*/
 
-app.get('/demande', (req, res) => {
-  db.query("CALL patientsJours;", (err, results, fields) => {
-    console.log(results)
-    if (err) throw err;
-    results[0].forEach(element => {
-      let newPatient = new apiHopital.Patient(null, null, null, null, null, null, null);
-      newPatient.idPatient = element['id_patient'];
-      //apiHopital.Patient.addPatientToList(newPatient);
-
-      //let nouveauPatient = new newModuleAPI.Patient(null, null, null, null, null, null, null);
-      //patient.idPatient.idPatient = element['id_patient'];
-      //console.log(patient.idPatient);
-      //console.log(element['id_patient']);
-    });
-
-    //console.log(apiHopital.Patient.totalPatients());
-    res.send(results);
-  });
-  /*db.query("SELECT tb_patients.id_patient, nom, prenom, tb_destination.id_status FROM tb_destination JOIN tb_patients ON tb_patients.id_patient = tb_destination.id_patient WHERE id_status = 2;",
-   (err, results, fields) => {
-    if (err) throw err;
-    console.log(results);*/
-  /*results.forEach(element => {
-    let nouveauPatient = new Patient(null, null, null, null , null, null ,null);
-    nouveauPatient.idPatient = element['id_patient'];
-    console.log( nouveauPatient.idPatient);
-  }); */
-  //res.send(results);
-});
-
-app.use("/api/static", express.static(__dirname + "/static"))
-app.get("/api/patients/:jour", (req, res) => {
+app.get("/api/patients/:jour", expressjwt({ secret: JWT_SECRET, algorithms:["HS256"] }), (req, res) => {
   db.query(`CALL listPatients("${req.params["jour"]}")`, (err, results, fields) => {
-    if (err) res.status(500).send(err);
+    if (err) return res.status(500).send(err);
+    const date = new Date();
+const offset = date.getTimezoneOffset();
+console.log(offset)   
     res.send(results ? results[0] : []);
   })
 })
 
-app.get("/api/reset", (req, res) => {
+//http://localhost:3000/changementStatus/20220001
+app.post('/api/changementStatus/:id_patient/:status', expressjwt({ secret: JWT_SECRET, algorithms:["HS256"] }), (req, res) => {
+  db.query(`CALL changementStatus(${req.params["id_patient"]}, ${req.params["status"]});`, (err, results, fields) => {
+    if (err) return res.status(500).send(err); // 500 renvoit internal server error
+    res.send("OK");
+  });
+});
+
+app.post("/api/requestPatient/:id_patient/:bed", expressjwt({ secret: JWT_SECRET, algorithms:["HS256"] }), (req, res) => {
+  db.query(`CALL requestPatient(${req.params["id_patient"]}, ${req.params["bed"]});`, (err, results, fields) => {
+    if (err) return res.status(500).send(err);
+    res.send("OK");
+  });
+})
+
+app.post("/api/reset", expressjwt({ secret: JWT_SECRET, algorithms:["HS256"] }), (req, res) => {
   db.query(`CALL reset()`, (err, results, fields) => {
-    if (err) res.status(500).send(err);
+    if (err) return res.status(500).send(err);
     res.send("OK");
   })
 })
 
-//http://localhost:3000/changementStatus/20220001
-app.get('/api/changementStatus/:id_patient/:status', (req, res) => {
-  db.query(`CALL changementStatus(${req.params["id_patient"]}, ${req.params["status"]});`, (err, results, fields) => {
-    if (err) res.status(500).send(err);
-    res.send(results);
-  });
-});
-
-app.get("/api/requestPatient/:id_patient/:bed", (req, res) => {
-  db.query(`CALL requestPatient(${req.params["id_patient"]}, ${req.params["bed"]});`, (err, results, fields) => {
-    if (err) res.status(500).send(err);
-    res.send(results);
-  });
+app.post("/api/login", (req, res) => {
+  db.query(`CALL login("${req.body.email}", "${req.body.password}")`, (err, results, fields) => {
+    if (err) return res.status(500).send(err)
+    if (results[0].length > 0) return res.status(200).send(jwt.sign(JSON.stringify({
+      role: results[0][0].id_role
+    }), JWT_SECRET, {
+      algorithm: "HS256"
+    }))
+    return res.status(403).send("bad user or password")
+  })
 })
 
-app.post('/createlogin/:jsons', (req, res) => {
-  console.log(`${req.params["password"]}, ${2}`)
+app.use((err, req, res, next) => {
+  if (err.name === "UnauthorizedError") {
+    res.status(401).send("invalid token...");
+  } else {
+    next(err);
+  }
 });
-/********************** Login **********************/
 
-
-
-//module.exports = db;
+// Allows you to set port in the project properties.
+app.set('port', process.env.PORT || 3000); //soit on prend le port environnement donné par le ser (ici Heroku), soit le 3000
+app.listen(app.get('port'), function () {
+  console.log('listening');
+});

@@ -8,13 +8,13 @@ const queryClient = new QueryClient();
 
 //rendering de l'application
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const root = ReactDOM.createRoot(document.getElementById('root')); // definition de l'element principal du DOM
+root.render( //construction du contenu de la div root en fonction des executions du code 
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <App />
     </QueryClientProvider>
   </React.StrictMode>
 );
-
+//a réexpliquer
 

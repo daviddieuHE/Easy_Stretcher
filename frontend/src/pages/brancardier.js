@@ -1,16 +1,16 @@
 import React from 'react';
 import "./brancardier.css"
-import PatientList from '../components/patientList';
+import PatientList from '../components/patientList/patientList';
 import { getPatients, updateStatus } from '../request';
 import { useQuery, useMutation } from "react-query"
 
 
 //Page Brancardier, recupp les données depuila db toutes les sec.
-function Brancardier({jour}) {
-    const { data, isLoading, refetch } = useQuery(["patients", jour], () => getPatients(jour), {
+function Brancardier({jour, token}) {
+    const { data, isLoading, refetch } = useQuery(["patients", jour], () => getPatients(jour, token), {
         refetchInterval: 1000
     })
-    const statusMutation = useMutation(updateStatus, {
+    const statusMutation = useMutation((values) => updateStatus(values, token), {
         onSuccess: refetch
     });
 
@@ -18,7 +18,7 @@ function Brancardier({jour}) {
             <div className="Brancardier">
                 <PatientList
                     title="Demande de transport"
-                    user="brancardier"
+                    user="brancardier"//est ce qu'on aurait pu utiliser du get pour le filtre ? 
                     posts={isLoading ? [] : data.filter(post => post.status == 1 || post.status == 4)}
                     handleClick={(id_patient, status) => statusMutation.mutate({ id_patient, status })}
                 />

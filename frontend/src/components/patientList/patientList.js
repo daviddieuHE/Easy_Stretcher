@@ -1,5 +1,5 @@
 import React from "react"
-import Patient from "./patient"
+import Patient from "../patient/patient"
 
 
 //Composant qui retourne l'affichage de tous les patients du jour, avec leurs actions.
