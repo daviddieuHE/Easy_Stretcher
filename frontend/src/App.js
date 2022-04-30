@@ -1,25 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Log from './pages/login';
+import Log from './pages/login/login';
 import Navbar from './components/navbar/navbar';
-import Infirmier from './pages/infirmier';
-import Brancardier from "./pages/brancardier"
+import Infirmier from './pages/infirmier/infirmier';
+import Brancardier from "./pages/brancardier/brancardier"
 import { useMutation } from 'react-query';
 import { logUser } from './request';
 import jwt_decode from "jwt-decode";
 
-const infirmierUser = {
-  email: "infirmier@admin.com",
-  password: "infirmier123"
-}
-
-const brancardierUser = {
-  email: "brancardier@admin.com",
-  password: "brancardier123"
-}
-
-
 //Fonction App renvoie le composant Router
-
 function App() {
   useEffect(() => {
     if ('Notification' in window)
@@ -38,10 +26,12 @@ function App() {
 function Router() {
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
-  const [jour, setJour] = useState("Lundi")
+  const [jour, setJour] = useState("Lundi") //new Date().toLocaleString('fr-fr', {  weekday: 'long' }); -> récupère la date du jour et converti en chaine de caractère (fr-fr pour avoir en français)
 
+  //Post -> useMutation / Get -> useQuery
   const loginMutation = useMutation(logUser, {
-    onSuccess: setUser
+    onSuccess: (token) => setUser(token),
+    onError: (e) => setError(e.response.data)
   })
 
   const logout = () => {
@@ -65,7 +55,9 @@ function Router() {
           <Brancardier jour={jour} token={user} />
         </div>
       )
-    } catch (err) { }
+    } catch (err) {
+      setError(err)
+     }
   }
   return <Log Login={loginMutation.mutate} error={error} />
 

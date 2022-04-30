@@ -3,7 +3,7 @@ const express = require('express'); // creation de l'API
 const cors = require('cors'); // sécurisation d'envois de requête depuis l'URL
 const path = require('path'); // acceder aux fichiers du filesystem sur le serveur
 const mysql = require('mysql');
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken") //https://jwt.io/
 const { expressjwt } = require("express-jwt")
 
 const JWT_SECRET = "EASYSTRETCHER"
@@ -41,7 +41,7 @@ app.get("/api/patients/:jour", expressjwt({ secret: JWT_SECRET, algorithms:["HS2
     const date = new Date();
     const offset = date.getTimezoneOffset();
     res.send(results ? results[0].map(res => {
-      const last_changed_status = res.last_changed_status - 1000*60 * (120+offset)
+      const last_changed_status = res.last_changed_status - 1000*60 * (120+offset) // 1000 ms * 60 secondes * (120m (timezone of db) + offset (timezone of server))
       return {...res, last_changed_status: last_changed_status}
     }) : []);
   })

@@ -1,7 +1,7 @@
 import React from 'react';
 import "./infirmier.css"
-import PatientList from '../components/patientList/patientList';
-import { getPatients, requestPatient, updateStatus } from '../request';
+import PatientList from '../../components/patientList/patientList';
+import { getPatients, requestPatient, updateStatus } from '../../request';
 import { useQuery, useMutation } from "react-query"
 
 
@@ -23,18 +23,18 @@ function Infirmier({jour, token}) {
                 <PatientList
                     title="Worklist"
                     user="infirmier"
-                    posts={isLoading ? [] : data.filter(post => post.status == 0)}
+                    patients={isLoading ? [] : data.filter(patient => patient.status == 0)}
                     handleClick={(id_patient, isBed) => requestMutation.mutate({ id_patient, isBed })}
                 />
                 <PatientList
                     title="Patients demandés"
                     user="infirmier"
-                    posts={isLoading ? [] : data.filter(post => post.status == 1 || post.status == 2)}
+                    patients={isLoading ? [] : data.filter(patient => patient.status == 1 || patient.status == 2)}
                 />
                 <PatientList
                     title="Patients arrivés"
                     user="infirmier"
-                    posts={isLoading ? [] : data.filter(post => post.status == 3 || post.status == 4)}
+                    patients={isLoading ? [] : data.filter(patient => patient.status == 3 || patient.status == 4)}
                     handleClick={(id_patient) => statusMutation.mutate({ id_patient, status: 4 })} />
             </div>
 

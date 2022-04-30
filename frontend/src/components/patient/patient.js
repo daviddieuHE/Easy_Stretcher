@@ -8,16 +8,20 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, us
     const [timer, setTimer] = useState(0)
     const [audio, setAudio] = useState(false)
 
+    //permet d'écouter l'état (modification) d'une variable (ici status) et d'exécuter une fonction
     useEffect(() => {
         if(status == 0 || status == 3) return;
-        const interval = setInterval(() => setTimer(Math.abs((Date.now() - new Date(last_changed_status)) / 1000).toFixed(0)), 1000)
-        return () => clearInterval(interval)
+        //interval permet de répéter une fonction toute les x ms (ici 1000)
+        const interval = setInterval(() => {
+            setTimer(Math.abs((Date.now() - new Date(last_changed_status)) / 1000).toFixed(0))
+        }, 1000)
+
+        return () => clearInterval(interval) //permet de supprimer un interval, dans note cas quand un status change il faut retirer le précédent interval
     }, [status])
 
     useEffect(() => {
         if ((status == 1 || status == 4) && user == "brancardier") {
             if (audio) return;
-            console.log(audio, status, user)
             const sound = new Audio("/api/static/dong.mp3")
             setAudio(true)
             sound.play()
@@ -30,7 +34,7 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, us
                 new Notification(`Le patient ${nom} ${prenom} est arrivé !`)
             }
         }
-    }, [status, user])
+    }, [status])
 
     return (
         <div id={nom} className="patient-container">
