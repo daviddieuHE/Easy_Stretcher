@@ -4,13 +4,13 @@ import bed from "../../img/bed.png"
 import chair from "../../img/chair.png"
 
 //Fonction Patient retourne la structure de l'affichage d'un patient.
-function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, user, handleClick }) {
+function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, chambre, date_naiss, user, handleClick }) {
     const [timer, setTimer] = useState(0)
     const [audio, setAudio] = useState(false)
 
     //permet d'écouter l'état (modification) d'une variable (ici status) et d'exécuter une fonction
     useEffect(() => {
-        if(status == 0 || status == 3) return;
+        if(status == 0 || status == 3) return;//on affiche pas le timer en 0 et 3
         //interval permet de répéter une fonction toute les x ms (ici 1000)
         const interval = setInterval(() => {
             setTimer(Math.abs((Date.now() - new Date(last_changed_status)) / 1000).toFixed(0))
@@ -39,11 +39,11 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, us
     return (
         <div id={nom} className="patient-container">
             <div className="patient-info">
-                <div>{nom} {prenom}</div>
+                <div>{nom} {prenom} / {(new Date (date_naiss)).toISOString().slice(0, 10)}</div>
                 {status != 0 && status != 3 && <div>{timer} s.</div>}
             </div>
             <div className="patient-action">
-                <div>N°{id_patient}</div>
+                <div>N°{id_patient} / {chambre}</div>
                 <div>
                     <div className="action"> {
                         user == "infirmier" ? <InfirmierActionStatus status={status} handleClick={(isBed) => handleClick(id_patient, isBed)} />
@@ -128,7 +128,7 @@ function BrancardierActionStatus({ status, isBed, handleClick }) {
                 </div>)
         case 2:
         case 5:
-            return <button onClick={handleClick} className="action-button">déposé</button>
+            return <button onClick={handleClick} className="action-button">déposer</button>
     }
 }
 export default Patient

@@ -16,6 +16,5 @@ root.render( //construction du contenu de la div root en fonction des executions
     </QueryClientProvider>
   </React.StrictMode>
 );
-//a réexpliquer
 // QueryClientProvider -> https://fr.reactjs.org/docs/context.html
 
