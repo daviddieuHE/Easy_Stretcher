@@ -19,7 +19,7 @@ function Infirmier({date, token}) {
     })
 
     return (
-            <div className="Infirmier">
+            <div data-testid = "infiDiv" className="Infirmier">
                 <PatientList
                     title="Worklist"
                     user="infirmier"
