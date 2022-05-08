@@ -20,7 +20,7 @@ function Navbar({logout,date, handleChange, token}) {
                 display: "flex",
                 alignItems: "center"
             }}>
-                <input type="date" value={date} onChange={(e) => handleChange(e.target.value)} />
+                <input data-testid="dayPicker" type="date" value={date} onChange={(e) => handleChange(e.target.value)} />
                 <button onClick={resetMutation.mutate} style={{marginLeft: 10}}>Reset</button>
             </div>
             <button id='logout' onClick={logout}>Logout</button>
