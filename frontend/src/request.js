@@ -2,8 +2,8 @@ import axios from "axios"
 
 
 //getPatients renvoie les patients du jour depuis la db 
-function getPatients(jour, token) {
-    return axios.get(`/api/patients/${jour}`, {
+function getPatients(date, token) {
+    return axios.get(`/api/patients/${date}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }

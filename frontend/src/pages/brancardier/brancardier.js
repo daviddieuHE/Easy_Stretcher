@@ -6,8 +6,8 @@ import { useQuery, useMutation } from "react-query"
 
 
 //Page Brancardier, recupp les données depuis la db toutes les sec.
-function Brancardier({jour, token}) {
-    const patientsQuery = useQuery(["patients", jour], () => getPatients(jour, token), {
+function Brancardier({date, token}) {
+    const patientsQuery = useQuery(["patients", date], () => getPatients(date, token), {
         refetchInterval: 1000
     })
     const statusMutation = useMutation((values) => updateStatus(values, token), {//a reexpliquer

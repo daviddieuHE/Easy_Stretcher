@@ -35,8 +35,8 @@ app.use((req, res, next) => {
 
 
 
-app.get("/api/patients/:jour", expressjwt({ secret: JWT_SECRET, algorithms:["HS256"] }), (req, res) => {
-  db.query(`CALL listPatients("${req.params["jour"]}")`, (err, results, fields) => {
+app.get("/api/patients/:date", expressjwt({ secret: JWT_SECRET, algorithms:["HS256"] }), (req, res) => {
+  db.query(`CALL listPatients("${req.params["date"]}")`, (err, results, fields) => {
     if (err) return res.status(500).send(err);
     const date = new Date();
     const offset = date.getTimezoneOffset();
@@ -81,6 +81,13 @@ app.post("/api/login", (req, res) => {
   })
 })
 
+app.post("/api/inserpatient", expressjwt({ secret: JWT_SECRET, algorithms:["HS256"] }), (req, res) => {
+  db.query(`CALL ajoutPatient("${req.body.nom}", "${req.body.prenom}", "${req.body.date_naiss}", "${req.body.chambre}", "${req.body.date_exam}")`, (err, results, fields) => {
+    if (err) return res.status(500).send(err)
+    return res.status(200).send("OK")
+  })
+})
+
 app.use((err, req, res, next) => {
   if (err.name === "UnauthorizedError") {
     res.status(401).send("invalid token...");
@@ -94,3 +101,4 @@ app.set('port', process.env.PORT || 3000); //soit on prend le port environnement
 app.listen(app.get('port'), function () {
   console.log('listening');
 });
+

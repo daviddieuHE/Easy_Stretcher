@@ -6,7 +6,7 @@ import {useMutation, useQueryClient} from "react-query"
 
 
 //Composant de la bar de vavigation. Contient Logo, button Logout, selection du jour et button Reset.
-function Navbar({logout,jour, handleChange, token}) {
+function Navbar({logout,date, handleChange, token}) {
     const queryClient = useQueryClient()
 
     const resetMutation = useMutation(() => resetTable(token), {
@@ -20,25 +20,11 @@ function Navbar({logout,jour, handleChange, token}) {
                 display: "flex",
                 alignItems: "center"
             }}>
-                <DayPicker handleChange={handleChange} jour={jour} />
+                <input type="date" value={date} onChange={(e) => handleChange(e.target.value)} />
                 <button onClick={resetMutation.mutate} style={{marginLeft: 10}}>Reset</button>
             </div>
             <button id='logout' onClick={logout}>Logout</button>
         </div>
-    )
-}
-
-function DayPicker({jour, handleChange}) {
-    return (
-        <select value={jour} className="day-picker" onChange={handleChange}>
-            <option>Lundi</option>
-            <option>Mardi</option>
-            <option>Mercredi</option>
-            <option>Jeudi</option>
-            <option>Vendredi</option>
-            <option>Samedi</option>
-            <option>Dimanche</option>
-        </select>
     )
 }
 

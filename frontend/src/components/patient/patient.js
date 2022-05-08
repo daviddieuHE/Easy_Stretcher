@@ -36,11 +36,19 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, ch
         }
     }, [status])
 
+    let timerText;
+    if(timer < 60) {
+        timerText = `${timer} s`
+    } else {
+        timerText = `${Math.floor(timer/60)} m`
+    }
+
+
     return (
         <div id={nom} className="patient-container">
             <div className="patient-info">
                 <div>{nom} {prenom} / {(new Date (date_naiss)).toISOString().slice(0, 10)}</div>
-                {status != 0 && status != 3 && <div>{timer} s.</div>}
+                {status != 0 && status != 3 && <div>{timerText}</div>}
             </div>
             <div className="patient-action">
                 <div>N°{id_patient} / {chambre}</div>

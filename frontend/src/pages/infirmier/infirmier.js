@@ -6,8 +6,8 @@ import { useQuery, useMutation } from "react-query"
 
 
 //Page infirmier, récupp les données depuis la db toutes les secondes.
-function Infirmier({jour, token}) {
-    const { data, isLoading, refetch } = useQuery(["patients", jour], () => getPatients(jour, token), {
+function Infirmier({date, token}) {
+    const { data, isLoading, refetch } = useQuery(["patients", date], () => getPatients(date, token), {
         refetchInterval: 1000
     })
     const statusMutation = useMutation((values) => updateStatus(values, token), {
