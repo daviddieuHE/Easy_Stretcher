@@ -2,7 +2,7 @@ import { render, screen, cleanup } from '@testing-library/react';
 import Log from '../pages/login/login';
 
 
-test('should render every Log elements', () => {
+test('should render every login elements', () => {
     render(<Log/>);
     const loginWindow = screen.getByTestId('loginDiv');
     const nameTextbox = screen.getByRole('textbox', {  name: /name/i});

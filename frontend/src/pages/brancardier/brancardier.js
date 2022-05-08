@@ -15,7 +15,7 @@ function Brancardier({date, token}) {
     });
 
     return (
-            <div className="Brancardier">
+            <div data-testid="branDiv" className="Brancardier">
                 <PatientList
                     title="Demande de transport"
                     user="brancardier"//est ce qu'on aurait pu utiliser du get pour le filtre ? 
