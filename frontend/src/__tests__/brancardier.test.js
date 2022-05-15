@@ -1,6 +1,8 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import Brancardier from '../pages/brancardier/brancardier';
 
+const date ='2022-05-09';
+const user = 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowfQ.y8b7k9nCOsHOQiFhSN04wsqIDss-jQoljFPyFZ3DarU';
 
 test('should render every brancardier elements', () => {
     render(<Brancardier date={date} token={user} />);

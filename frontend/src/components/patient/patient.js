@@ -54,8 +54,8 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, ch
                 <div>N°{id_patient} / {chambre}</div>
                 <div>
                     <div className="action"> {
-                        user == "infirmier" ? <InfirmierActionStatus status={status} handleClick={(isBed) => handleClick(id_patient, isBed)} />
-                            : <BrancardierActionStatus status={status} isBed={bed} handleClick={() => handleClick(id_patient, status + 1)} />
+                        user == "infirmier" ? <InfirmierActionStatus patient={id_patient} status={status} handleClick={(isBed) => handleClick(id_patient, isBed)} />
+                            : <BrancardierActionStatus patient={id_patient} status={status} isBed={bed} handleClick={() => handleClick(id_patient, status + 1)} />
                     }
 
                     </div>
@@ -65,7 +65,7 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, ch
     )
 }
 
-function InfirmierTransportButton({ handleClick }) {
+function InfirmierTransportButton({ handleClick, id_patient }) {
     const [isBed, setIsBed] = useState(true)
 
     return (
@@ -83,16 +83,16 @@ function InfirmierTransportButton({ handleClick }) {
                 padding: "5px",
                 cursor: "pointer"
             }} onClick={() => setIsBed(prevStatus => !prevStatus)} />
-            <button onClick={() => handleClick(isBed)} className="action-button">demander</button>
+            <button onClick={() => handleClick(isBed)} data-testid={id_patient} className="action-button">demander</button>
         </div>
     )
 }
 
 //Fonction qui selon le status du patient retourne un boutton ou un état.
-function InfirmierActionStatus({ status, handleClick }) {
+function InfirmierActionStatus({ status, handleClick, id_patient }) {
     switch (status) {
         case 0:
-            return <InfirmierTransportButton handleClick={handleClick} />
+            return <InfirmierTransportButton patient={id_patient} handleClick={handleClick} />
         case 1:
             return <div style={{
                 backgroundColor: "rgb(192, 199, 58)",
