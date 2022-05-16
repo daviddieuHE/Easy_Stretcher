@@ -6,3 +6,10 @@ Cypress.Commands.add('loginInf', () => {
     cy.get('#password').type('123');
     cy.get('[type="submit"]').click();
 })
+
+Cypress.Commands.add('loginBran', () => {
+    cy.visit('/')
+    cy.get('#email').type('scanner01@admin.com');
+    cy.get('#password').type('123');
+    cy.get('[type="submit"]').click();
+})
