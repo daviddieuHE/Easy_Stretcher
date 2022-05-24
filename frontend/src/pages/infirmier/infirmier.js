@@ -1,8 +1,8 @@
 import React from 'react';
-import "./infirmier.css"
+import "./infirmier.css";
 import PatientList from '../../components/patientList/patientList';
 import { getPatients, requestPatient, updateStatus } from '../../request';
-import { useQuery, useMutation } from "react-query"
+import { useQuery, useMutation } from "react-query";
 
 
 //Page infirmier, récupp les données depuis la db toutes les secondes.
