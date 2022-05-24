@@ -1,48 +1,57 @@
 .patient-container {
-    display: flex;
-    width: "100%";
-    flex-direction: column;
-    background-color: rgb(53, 187, 142);
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
-
+  display: flex;
+  width: "100%";
+  flex-direction: column;
+  background-color: rgb(53, 187, 142);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .patient-container > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .patient-action {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .bed {
-    background: "transparent";
-    display: "flex";
-    align-items: "center";
+  background: "transparent";
+  display: "flex";
+  align-items: "center";
 }
 
 .action > button {
-    background-color: rgb(165, 72, 72);
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    font-size: 12pt;
-    user-select: none;
+  background-color: rgb(165, 72, 72);
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  font-size: 12pt;
+  user-select: none;
 }
 
 .action > div {
-    background-color: rgb(165, 72, 72);
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-    font-size: 12pt;
-    user-select: none;
+  background-color: rgb(165, 72, 72);
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  font-size: 12pt;
+  user-select: none;
 }
 
 .action-button {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.icon-button {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  background: white;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
 }
