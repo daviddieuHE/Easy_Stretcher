@@ -10,15 +10,15 @@ function Brancardier({date, token}) {
     const patientsQuery = useQuery(["patients", date], () => getPatients(date, token), {
         refetchInterval: 1000
     })
-    const statusMutation = useMutation((values) => updateStatus(values, token), {//a reexpliquer
-        onSuccess: patientsQuery.refetch
+    const statusMutation = useMutation((values) => updateStatus(values, token), {// modifie le statut d'un patient
+        onSuccess: patientsQuery.refetch //actualiser la liste de patient
     });
 
     return (
             <div data-testid="branDiv" className="Brancardier">
                 <PatientList
                     title="Demande de transport"
-                    user="brancardier"//est ce qu'on aurait pu utiliser du get pour le filtre ? 
+                    user="brancardier"
                     patients={patientsQuery.isLoading ? [] : patientsQuery.data.filter(patient => patient.status == 1 || patient.status == 4)}
                     handleClick={(id_patient, status) => statusMutation.mutate({ id_patient, status })}
                 />

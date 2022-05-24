@@ -5,6 +5,8 @@
     background-color: rgb(53, 187, 142);
     margin: 10px;
     padding: 10px;
+    border-radius: 5px;
+
 }
 
 .patient-container > div {

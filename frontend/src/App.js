@@ -47,9 +47,9 @@ function Router() {
   }
 
   //Condition pour savoir quels sont les log et donc afficher la bonne page.
-  if (user) {
+  if (user) {// est ce que l'utilisateur est connecté ? 
     try {
-      const info = jwt_decode(user)
+      const info = jwt_decode(user)//permet de récupéré les infos contenues dans le token a savoir le role de l'utilisateur connecté
       if (info.role == 0)
         return (
           <div style={{ width: "100%", height: "100%" }}>

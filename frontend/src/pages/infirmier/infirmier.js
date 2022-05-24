@@ -30,6 +30,7 @@ function Infirmier({date, token}) {
                     title="Patients demandés"
                     user="infirmier"
                     patients={isLoading ? [] : data.filter(patient => patient.status == 1 || patient.status == 2)}
+                    handleClick={(id_patient) => statusMutation.mutate({id_patient, status: 0})}
                 />
                 <PatientList
                     title="Patients arrivés"

@@ -44,7 +44,7 @@ function Patient({ nom, prenom, id_patient, last_changed_status, bed, status, ch
     }
 
 
-    return (
+    return (//convertion de la donnée date de naissance de la bdd initialement format string, convertie ici au format date, puis redéfinie en string mais cette fois ci au format désiré 
         <div id={nom} className="patient-container">
             <div className="patient-info">
                 <div>{nom} {prenom} / {(new Date (date_naiss)).toISOString().slice(0, 10)}</div>
@@ -94,10 +94,18 @@ function InfirmierActionStatus({ status, handleClick, id_patient }) {
         case 0:
             return <InfirmierTransportButton patient={id_patient} handleClick={handleClick} />
         case 1:
-            return <div style={{
+            return (
+            <div className="action" style={{
+                background: "transparent",
+                display: "flex",
+                alignItems: "center"
+            }}>
+            <div className="action-button" onClick={handleClick}>annuler</div>    
+            <div style={{
                 backgroundColor: "rgb(192, 199, 58)",
-                color: "black"
-            }}>en attente</div>
+                color: "black",
+                marginLeft: 5
+            }}>en attente</div></div>)
 
         case 2:
             return <div style={{
