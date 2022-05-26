@@ -23,6 +23,7 @@
     "node": "18.0.0"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.12",
     "@testing-library/cypress": "^8.0.2",
     "cypress": "^9.6.0"
   }
