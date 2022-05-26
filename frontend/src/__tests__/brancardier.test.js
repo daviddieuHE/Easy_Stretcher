@@ -1,20 +1,39 @@
 import { render, screen, cleanup } from '@testing-library/react';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+
 import Brancardier from '../pages/brancardier/brancardier';
 
-const date ='2022-05-09';
-const user = 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowfQ.y8b7k9nCOsHOQiFhSN04wsqIDss-jQoljFPyFZ3DarU';
 
-test('should render every brancardier elements', () => {
-    render(<Brancardier date={date} token={user} />);
-    const brnaWindow = screen.getByTestId('brnaDiv');
-    const demandeDeTrnasportElement = screen.getByRole('heading', {  name: /demande de transport/i})
-    const transportEnCoursElement = screen.getByRole('heading', {  name: /transport en cours/i})
-    const listeDeTravailElement = screen.getByRole('heading', {  name: /liste de travail/i})
-    
 
-    expect(brnaWindow).toBeInTheDocument();
-    expect(worklistElement).toBeInTheDocument();
+const queryClient = new QueryClient();
+
+const MockBrancardier = () => {
+    return (
+        <QueryClientProvider client={queryClient} >
+
+            <Brancardier
+                date ='2022-05-26'
+                token = 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjowfQ.y8b7k9nCOsHOQiFhSN04wsqIDss-jQoljFPyFZ3DarU'
+            />
+
+        </QueryClientProvider>
+    )}
+
+
+test('should render the demande de transport element', async () => {
+    render (<MockBrancardier/>)
+    const demandeDeTransportElement = await screen.findByText(/demande de transport/i)
+    expect(demandeDeTransportElement).toBeInTheDocument();
+})
+
+test('should render the transport en cours element', async () => {
+    render (<MockBrancardier/>)
+    const transportEnCoursElement = await screen.findByText(/transport en cours/i)
     expect(transportEnCoursElement).toBeInTheDocument();
-    expect(listeDeTravailElement).toBeInTheDocument();
+})
 
+test('should render the liste de travail element', async () => {
+    render (<MockBrancardier/>)
+    const listeDeTravailElement = await screen.findByText(/liste de travail/i)
+    expect(listeDeTravailElement).toBeInTheDocument();
 })

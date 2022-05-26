@@ -128,7 +128,7 @@ function InfirmierTransportButton({
       />
       <button
         onClick={() => handleClick(isBed)}
-        data-testid={id_patient}
+        data-testid={`demander-${id_patient}`}
         className="action-button"
       >
         demander
@@ -165,7 +165,7 @@ function InfirmierActionStatus({
             alignItems: "center",
           }}
         >
-          <div className="action-button" onClick={handleClick}>
+          <div className="action-button" data-testid={`annuler-${id_patient}`} onClick={handleClick}>
             annuler
           </div>
           <div
@@ -186,7 +186,8 @@ function InfirmierActionStatus({
           style={{
             backgroundColor: "rgb(86, 199, 58)",
             color: "black",
-          }}
+          }} 
+          data-testid={`en_transit-${id_patient}`}
         >
           en transit
         </div>
@@ -194,7 +195,7 @@ function InfirmierActionStatus({
 
     case 3:
       return (
-        <button onClick={handleClick} className="action-button">
+        <button onClick={handleClick} data-testid={`retour-${id_patient}`} className="action-button">
           retour
         </button>
       );
@@ -205,7 +206,8 @@ function InfirmierActionStatus({
           style={{
             backgroundColor: "rgb(192, 199, 58)",
             color: "black",
-          }}
+          }} 
+          data-testid={`demande-${id_patient}`}
         >
           demandé
         </div>
@@ -214,7 +216,7 @@ function InfirmierActionStatus({
 }
 
 //Fonction qui selon le status du patient retourne un boutton ou rien.
-function BrancardierActionStatus({ status, isBed, handleClick, comment }) {
+function BrancardierActionStatus({ status, isBed, handleClick, comment, id_patient }) {
   const handleMessage = () => {
     alert(comment);
   };
@@ -234,7 +236,8 @@ function BrancardierActionStatus({ status, isBed, handleClick, comment }) {
           <div
             className="action-button"
             style={{ marginRight: "10px" }}
-            onClick={() => handleClick(0)}
+            onClick={() => handleClick(0)} 
+            data-testid={`annuler-${id_patient}`}
           >
             annuler
           </div>
@@ -255,7 +258,8 @@ function BrancardierActionStatus({ status, isBed, handleClick, comment }) {
           />
           <button
             onClick={() => handleClick(status + 1)}
-            className="action-button"
+            className="action-button" 
+            data-testid={`accepter-${id_patient}`}
           >
             accepter
           </button>
@@ -266,7 +270,8 @@ function BrancardierActionStatus({ status, isBed, handleClick, comment }) {
       return (
         <button
           onClick={() => handleClick(status + 1)}
-          className="action-button"
+          className="action-button" 
+          data-testid={`deposer-${id_patient}`}
         >
           déposer
         </button>
