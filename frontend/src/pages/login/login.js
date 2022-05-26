@@ -20,10 +20,6 @@ export default function Log({ Login, error }) {
             <div className="form-inner">
               <h1>Please Log In</h1>
               {(error != "") ? (<div className="error">{error}</div>) : ""}
-              <div className="form-group">
-                <label htmlFor="name">Name </label>
-                <input type="text" name="name" id="name" onChange={e => setDetails({...details,name: e.target.value})} value={details.name} />
-              </div>
 
               <div className="form-group">
                 <label htmlFor="email">Email </label>
